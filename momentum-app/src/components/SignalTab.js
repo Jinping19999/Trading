@@ -4,6 +4,13 @@ import { T, card, muted, mono } from '../theme';
 import { Tag, Stat, Btn, Inp, Loading, ChartTooltip } from './UI';
 import { avFetch, buildAnalysis } from '../utils';
 
+// Accept regime as a prop
+export default function SignalTab({ apiKey, initTicker, onAddPortfolio, regime }) {
+
+// Apply multiplier to shares calculation
+const sizeMultiplier = regime?.sizeMultiplier ?? 1;
+  
+const shares = a ? Math.max(1, Math.floor(pv * rp * sizeMultiplier / a.riskPerShare)) : 0;
 export default function SignalTab({ apiKey, initTicker, onAddPortfolio }) {
   const [ticker, setTicker] = useState(initTicker || 'NVDA');
   const [analysis, setAnalysis] = useState(null);
