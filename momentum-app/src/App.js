@@ -14,7 +14,10 @@ const TABS = [
 ];
 
 const STORED_KEY = 'momentum_av_key';
-
+const [regime, setRegime] = useState(null);
+// Add a Regime tab alongside Signal, Screener, Backtest, Portfolio
+<RegimeTab apiKey={apiKey} onRegimeChange={setRegime} />
+  
 export default function App() {
   const [tab,       setTab]       = useState('signal');
   const [sigTicker, setSigTicker] = useState('NVDA');
