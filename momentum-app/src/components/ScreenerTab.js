@@ -3,6 +3,12 @@ import { T, muted, mono } from '../theme';
 import { Inp, Btn, Loading } from './UI';
 import { avFetch, buildAnalysis, sleep } from '../utils';
 
+{regime && regime.gate !== 'BULL' && (
+  <div style={{ color: T.amber, fontSize: 12, marginBottom: 8 }}>
+    ⚠ Regime: {regime.gateLabel} — size at {regime.sizeMultiplier * 100}%
+  </div>
+)}
+
 export default function ScreenerTab({ apiKey, onSelect }) {
   const [tickers, setTickers] = useState('AAPL,NVDA,MSFT,AMD,META,GOOGL,TSLA,AMZN');
   const [results, setResults] = useState([]);
